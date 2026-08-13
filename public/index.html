@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Glam Mash-Up ✨ Separates</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Quicksand:wght@400;500;600;700&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- link between the two pages -->
+<nav class="top-nav">
+  <a href="index.html" class="active">👚 Separates</a>
+  <a href="dresses.html">👗 Dresses</a>
+</nav>
+
+<header>
+  <h1>GLAM MASH-UP</h1>
+  <p class="tag">spin it, stop it, own the chaos 💅</p>
+  <p class="sub">Four reels, one closet. Hit Start to spin every category at once, then stop each one whenever you like — mismatched, matchy, or full chaos, it's your call.</p>
+  <p class="sub" style="margin-top:8px;">📌 Tap <strong>Upload pics</strong> under any reel to add your own real photos (up to 10 per category). They're saved on the server, not just this browser tab — refresh the page, close it, come back tomorrow, they'll still be here. Each uploaded photo gets its own <strong>×</strong> button in the gallery below its reel if you want it gone.</p>
+</header>
+
+<div class="controls">
+  <button class="btn-start" id="startBtn">▶ Start Spin</button>
+  <button class="btn-stopall" id="stopAllBtn" disabled>■ Stop All</button>
+  <button class="btn-reset" id="resetBtn">↻ New Round</button>
+</div>
+<div class="look-alert" id="lookAlert"></div>
+<div class="server-status" id="serverStatus"></div>
+
+<!-- built dynamically by app.js -> GlamApp.init() -->
+<div class="reels" id="reels"></div>
+
+<div class="lookboard">
+  <h2>Today's Look Board</h2>
+  <p>Whatever you've locked in so far, styled up together.</p>
+  <div class="board-frame" id="boardFrame">
+    <div class="empty-msg">Spin something to start building your look! ✨</div>
+  </div>
+</div>
+
+<footer>made for maximum drip, minimum matching 🎀</footer>
+
+<!-- shapes.js: placeholder icon library
+     app.js:    generic reel/gallery/upload/delete engine (talks to the backend)
+     the inline script below just tells app.js WHICH categories this page has -->
+<script src="shapes.js"></script>
+<script src="app.js"></script>
+<script>
+  GlamApp.init({
+    reelsContainerId: 'reels',
+    startBtnId: 'startBtn',
+    stopAllBtnId: 'stopAllBtn',
+    resetBtnId: 'resetBtn',
+    categories: [
+      {
+        key: 'tops', label: '👚 Tops', shapeFns: topShapeFns,
+        names: ['Blush Crop Tee','Golden Tank','Lilac Puff Blouse','Mint Halter','Sunset Sweater',
+                'Sky Crop Tee','Berry Tank','Butter Blouse','Violet Halter','Clay Sweater']
+      },
+      {
+        key: 'bottoms', label: '👖 Bottoms', shapeFns: bottomShapeFns,
+        names: ['Pink Skinny Jeans','Gold Wide-Legs','Lilac Mini Skirt','Mint Pleat Skirt','Sunset Cargos',
+                'Sky Skinny Jeans','Berry Wide-Legs','Butter Mini Skirt','Violet Pleat Skirt','Clay Cargos']
+      },
+      {
+        key: 'jewellery', label: '💎 Jewellery', shapeFns: jewelShapeFns,
+        names: ['Pink Chain Necklace','Gold Choker','Lilac Hoops','Mint Bracelet Stack','Sunset Rings',
+                'Sky Necklace','Berry Choker','Butter Hoops','Violet Bracelet Stack','Clay Rings']
+      },
+      {
+        key: 'shoes', label: '👠 Shoes', shapeFns: shoeShapeFns,
+        names: ['Pink Sneakers','Gold Heels','Lilac Sandals','Mint Ankle Boots','Sunset Flats',
+                'Sky Sneakers','Berry Heels','Butter Sandals','Violet Boots','Clay Flats']
+      }
+    ]
+  });
+</script>
+</body>
+</html>

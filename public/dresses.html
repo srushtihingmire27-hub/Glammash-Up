@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Glam Mash-Up ✨ Dress Mode</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Quicksand:wght@400;500;600;700&family=Caveat:wght@600;700&family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  /* a few small tweaks so this page feels like its own space rather
+     than a copy of the Separates page — bigger single reel, a fancier
+     italic accent font for the heading flourish */
+  header p.tag{ font-family:'Playfair Display', serif; font-style: italic; font-size: 1.4rem; }
+  .reel-window{ height: 320px; }
+  .reel-window svg{ width: 200px; height: 260px; }
+</style>
+</head>
+<body class="dress-theme">
+
+<nav class="top-nav">
+  <a href="index.html">👚 Separates</a>
+  <a href="dresses.html" class="active">👗 Dresses</a>
+</nav>
+
+<header>
+  <h1>DRESS MODE</h1>
+  <p class="tag">one piece, full effect</p>
+  <p class="sub">Its own reel, its own moment. Spin through dresses on their own — pair the result with whatever shoes and jewellery you land on over in Separates.</p>
+  <p class="sub" style="margin-top:8px;">📌 Upload up to 10 real dress photos below — they're saved on the server and stick around until you delete them with the × on their thumbnail.</p>
+</header>
+
+<div class="controls">
+  <button class="btn-start" id="startBtn">▶ Start Spin</button>
+  <button class="btn-stopall" id="stopAllBtn" disabled>■ Stop All</button>
+  <button class="btn-reset" id="resetBtn">↻ New Round</button>
+</div>
+<div class="look-alert" id="lookAlert"></div>
+<div class="server-status" id="serverStatus"></div>
+
+<!-- built dynamically by app.js -> GlamApp.init(); just one category here -->
+<div class="reels" id="reels"></div>
+
+<footer>made for maximum drip, minimum matching 🎀</footer>
+
+<script src="shapes.js"></script>
+<script src="app.js"></script>
+<script>
+  GlamApp.init({
+    reelsContainerId: 'reels',
+    startBtnId: 'startBtn',
+    stopAllBtnId: 'stopAllBtn',
+    resetBtnId: 'resetBtn',
+    categories: [
+      {
+        key: 'dresses', label: '👗 Dresses', shapeFns: dressShapeFns,
+        names: ['Blush Slip Dress','Gold Puff Dress','Lilac Wrap Dress','Mint Tulle Dress','Sunset Maxi Dress',
+                'Sky Slip Dress','Berry Puff Dress','Butter Wrap Dress','Violet Tulle Dress','Clay Maxi Dress']
+      }
+    ]
+  });
+</script>
+</body>
+</html>
